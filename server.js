@@ -16,7 +16,7 @@ app.get("/", (req, res) => {
 });
 //API da página de erros:
 app.all("*", (req, res) => {
-    require("fs").readFileSync(join("wwwroot", "error.html"));
+    res.status(404).send(require("fs").readFileSync(join("wwwroot", "error.html"), "utf-8"));
 });
 //#endregion
 

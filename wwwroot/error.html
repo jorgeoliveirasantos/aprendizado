@@ -13,30 +13,32 @@
 <body>
     <div class="erro">
         <h1>Sinto muito!</h1>
-        <img src="./files/erro.svg">
         <p>A página que você tentou visitar não existe. <br><a href="./index.html">Voltar ao início.</a></p>
+        <img src="./files/erro.svg" style="width: 90%; margin: 30px auto auto auto; display: block;">
     </div>
 </body>
 <style>
-    .erro {
-        width: fit-content;
-        margin: auto;
-        padding: 3vw;
-        font-size: 2vw;
-        text-align: center;
+    @keyframes erro {
+        from {
+            filter: hue-rotate(0deg) brightness(1.5);
+        }
+        to {
+            filter: hue-rotate(180deg) brightness(1);
+        }
     }
 
-    .erro img {
-        width: 30vw;
-        padding: 2vw;
+    .erro {
         display: block;
+        width: 80vw;
+        height: 90vh;
         margin: auto;
-        transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        padding: 2%;
+        box-sizing: border-box;
+        font-size: xx-large;
+        animation: erro 1s ease-in infinite alternate;
     }
-    
-    .erro img:hover {
-        width: 34vw;
-        padding: 0;
+
+    .erro:hover {
         filter: hue-rotate(180deg) brightness(1.5);
     }
 
@@ -56,7 +58,7 @@
         align-self: center;
         align-items: center;
         text-indent: 0 !important;
-        line-height: 1;
+        margin: auto;
     }
 </style>
 
