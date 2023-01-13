@@ -1,0 +1,96 @@
+/* #region IMPORTS */
+@font-face {
+    font-family: "Hubballi";
+    src: url("./files/Hubballi.ttf");
+}
+
+@font-face {
+    font-family: "Tech";
+    src: url("./files/Tech.ttf");
+}
+
+@font-face {
+    font-family: "Baloo";
+    src: url("./files/Baloo.ttf");
+}
+
+/* #endregion */
+
+/* #region VARIÁVEIS */
+
+:root {
+    --cyan: var(--cyan);
+    --black: black;
+    --white: white;
+    --pretoDark: #151015;
+    --pretoMedio: #252020;
+    --pretoLeve: #403525;
+    --AMARELO: #FB0;
+    --cinzaMedio: rgb(160, 133, 97);
+    --cinzaLeve: #DDD;
+    --gradiente45: linear-gradient(45deg, rgb(255, 255, 119), rgb(170, 82, 0))1;
+    --gradiente0: linear-gradient(0deg, rgb(255, 255, 119), rgb(170, 123, 0))1;
+    --gradiente90: linear-gradient(90deg, rgb(255, 255, 119), rgb(170, 123, 0))1;
+    cursor: url("./files/js-pointer.cur") 0 0, auto;
+}
+
+/* #endregion */
+
+/* #region CONFIGURAÇÕES DO SITE ==================================================== */
+
+/* Corpo */
+body {
+    background-color: var(--pretoDark);
+    color: var(--cinzaLeve);
+    margin: 0;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    font-family: Hubballi, Calibri, 'Trebuchet MS', sans-serif;
+}
+
+/* Seleção  */
+::selection {
+    color: var(--black);
+    background-color: var(--AMARELO);
+}
+
+:root p,
+:root h1,
+:root h2,
+:root h3,
+:root li,
+:root a {
+    -moz-user-select: none;
+    user-select: none;
+}
+
+::-moz-selection {
+    color: var(--black);
+    background-color: var(--AMARELO);
+}
+
+/* Espessura da barra de roladem */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+/* Fundo da barra de roladem */
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* Barra de roladem */
+::-webkit-scrollbar-thumb {
+    background-color: var(--cinzaMedio);
+    border-radius: 10px;
+    min-height: 100px;
+}
+
+/* Barra de roladem : Hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--AMARELO);
+}
+
+/* #endregion CONFIGURAÇÕES DO SITE ==================================*/
