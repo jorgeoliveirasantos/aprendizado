@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <script src="./index.js"></script>
+    <link rel="shortcut icon" href="./files/logo.svg" type="image/x-icon">
+    <title>Aprendizado | Jorge Souza</title>
+</head>
+
+<body>
+    <div class="Shell">
+        <!-- Linha 1 MENU-->
+        <div class="menu">
+            <a href="./index.html" id="logo-btn" title="Início">
+                <img src="./files/logo.svg" style="height: 30px;">
+            </a>
+            <a>Item 1</a>
+            <a>Item 2</a>
+            <a>Item 3</a>
+            <a>Item 4</a>
+            <span></span>
+        </div>
+        <!-- Linha 2 APP -->
+        <div class="App">
+            <div class="app-barralateral-esquerda">
+                <p>Jorge Souza</p>
+            </div>
+            <div class="app-conteudo">
+                <div class="formulario-login">
+                    <fieldset id="login1-email" style="display: block;">
+                        <legend>
+                            <h3>Login/Cadastro</h3>
+                        </legend>
+                        <p>Se não estiver cadastrado<br>iremos cadastrá-lo.</p>
+                        <label for="txt-email">E-mail</label>
+                        <div class="formulario-login-itens">
+                            <input type="email" id="txt-email" autofocus placeholder="exemplo@exemplo.com"
+                                oninput="document.getElementById('txt-email-cadastro').value = this.value">
+                            <button onclick="Login.Avancar(1)" style="width: 100%;">Avançar</button>
+                        </div>
+                    </fieldset>
+                    <fieldset id="login2-senha" style="display: none;">
+                        <legend>
+                            <h3>Login</h3>
+                        </legend>
+                        <p id="msg-login"></p>
+                        <div class="formulario-login-itens">
+                            <label for="txt-senha-login">Senha</label>
+                            <input type="password" id="txt-senha-login">
+                            <div class="formulario-login-botoes">
+                                <a onclick="exibirSenha(this, document.getElementById('txt-senha-login'))">Exibir
+                                    senha</a>
+                                <a>Esqueceu a senha?</a>
+                            </div>
+                            <button onclick="Login.Avancar(2)" style="width: 100%;">Avançar</button>
+                        </div>
+                    </fieldset>
+                    <fieldset id="login3-cadastro" style="display: none;">
+                        <legend>
+                            <h3>Cadastro</h3>
+                        </legend>
+                        <p id="msg-cadastro"></p>
+                        <div class="formulario-login-itens">
+                            <label for="txt-nome-cadastro">Nome</label>
+                            <input type="text" id="txt-nome-cadastro">
+                            <label for="txt-email-cadastro">E-mail</label>
+                            <input type="email" id="txt-email-cadastro" placeholder="email@email.com">
+                            <label for="txt-senha-cadastro">Senha</label>
+                            <input type="password" id="txt-senha-cadastro">
+                            <div class="formulario-login-botoes">
+                                <a onclick="exibirSenha(this, document.getElementById('txt-senha-cadastro'))">Exibir
+                                    senha</a>
+                            </div>
+                            <button onclick="Login.Avancar(3)" style="width: 100%;">Avançar</button>
+                        </div>
+                    </fieldset>
+                    <fieldset id="login4-mudar-senha" style="display: none;">
+                        <legend>
+                            <h3>Alteração de senha</h3>
+                        </legend>
+                        <p>Um link de alteracao de senha<br>será enviado ao seu e-mail</p>
+                        <div class="formulario-login-itens">
+                            <label for="txt-email-mudasenha">E-mail</label>
+                            <input type="email" id="txt-email-mudasenha" placeholder="exemplo@exemplo.com">
+                            <button onclick="Login.Avancar(4)" style="width: 100%;">Avançar</button>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="app-barralateral-direita">
+                <script async
+                    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7018638705666056"
+                    crossorigin="anonymous"></script>
+            </div>
+        </div>
+        <!-- Linha 2 APP -->
+        <div class="app-rodape">
+            <div style="padding: 15px;">
+                <div><a>Item 1</a></div>
+                <div><a>Item 2</a></div>
+                <div><a>Item 3</a></div>
+                <div><a>Item 4</a></div>
+                <div><a>Item 5</a></div>
+            </div>
+            <div style="padding: 15px;">
+                <div><a>Item 1</a></div>
+                <div><a>Item 2</a></div>
+                <div><a>Item 3</a></div>
+                <div><a>Item 4</a></div>
+                <div><a>Item 5</a></div>
+            </div>
+            <div style="padding: 15px;">
+                <div><a>Item 1</a></div>
+                <div><a>Item 2</a></div>
+                <div><a>Item 3</a></div>
+                <div><a>Item 4</a></div>
+                <div><a>Item 5</a></div>
+            </div>
+            <div style="grid-row: 2; grid-column-start: 1; grid-column-end: 4; padding: 15px;">
+                <hr style="border: none; border-top: var(--pretoLeve) 1px solid; margin: 0 10% 0 10%; padding: 15px;">
+                <img src="./files/logo.svg" style="height: 50px; pointer-events: none; user-select: none;">
+                <h3>Jorge Souza Oliveira dos Santos</h3>
+            </div>
+        </div>
+    </div>
+    <modal></modal>
+</body>
+</html>

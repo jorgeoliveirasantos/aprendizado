@@ -1,7 +1,7 @@
 /* #region IMPORTS */
 @font-face {
     font-family: "Hubballi";
-    src: url("./files/Hubballi.ttf");
+    src: url("./files/Limelight-Regular.ttf");
 }
 
 @font-face {
@@ -11,10 +11,11 @@
 
 @font-face {
     font-family: "Baloo";
-    src: url("./files/Baloo.ttf");
+    src: url("./files/Gruppo-Regular.ttf");
 }
 
 /* #endregion */
+
 
 /* #region VARIÁVEIS */
 
@@ -22,10 +23,11 @@
     --cyan: var(--cyan);
     --black: black;
     --white: white;
-    --pretoDark: #151015;
+    --pretoDark: #101515;
     --pretoMedio: #252020;
     --pretoLeve: #403525;
     --AMARELO: #FB0;
+    --VERDE: #0FB;
     --cinzaMedio: rgb(160, 133, 97);
     --cinzaLeve: #DDD;
     --gradiente45: linear-gradient(45deg, rgb(255, 255, 119), rgb(170, 82, 0))1;
@@ -33,19 +35,211 @@
     --gradiente90: linear-gradient(90deg, rgb(255, 255, 119), rgb(170, 123, 0))1;
     cursor: url("./files/js-pointer.cur") 0 0, auto;
 }
+/* #endregion */
+
+
+
+/* #region MENU */
+.menu {
+    position: sticky;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    left: 0;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto 1fr auto;
+    background-color: var(--pretoDark);
+    border-bottom: var(--pretoLeve) 1px solid;
+}
+
+.menu #logo-btn:hover {
+    background-color: transparent;
+    opacity: 1;
+    scale: 1.1;
+}
+
+.menu #logo-btn {
+    padding: 5px 20px 5px 20px;
+    opacity: 0.5;
+    transition: all 300ms ease-out;
+}
+
+.menu #login-btn {
+    padding: 5px;
+    color: var(--cinzaLeve);
+    transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+    opacity: 0.5;
+}
+
+.menu #login-btn:hover {
+    background-color: transparent;
+    opacity: 1;
+}
+
+.menu a {
+    padding: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 500ms ease-in;
+    color: var(--AMARELO);
+    text-decoration: none;
+}
+
+.menu a:hover {
+    background-color: var(--pretoLeve);
+    color: var(--cinzaLeve);
+}
+/* #endregion */
+
+
+/* #region FORMULÁRIO LOGIN/CADASTRO */
+.formulario-login {
+    margin: auto;
+    width: fit-content;
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 15px;
+}
+
+.formulario-login fieldset {
+    padding: 30px;
+    width: fit-content;
+    border: 1px solid;
+    border-image: var(--gradiente45);
+}
+
+.formulario-login button {
+    background-color: transparent;
+    font-size: large;
+    color: var(--cinzaLeve);
+    padding: 10px;
+    border: var(--pretoLeve) 1px solid;
+    border-radius: 50PX;
+    font-family: Baloo;
+    transition: all 500ms;
+    cursor: pointer;
+}
+
+.formulario-login button:hover {
+    background-color: var(--pretoLeve);
+}
+
+.formulario-login a {
+    transition: all 500ms;
+    cursor: pointer;
+}
+
+.formulario-login a:hover {
+    color: var(--AMARELO);
+}
+
+.formulario-login input {
+    background-color: transparent;
+    color: var(--cinzaLeve);
+    border: var(--pretoLeve) 1px solid;
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: Baloo;
+    padding: 10px;
+    border-radius: 50px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.formulario-login-itens * {
+    display: block;
+    box-sizing: border-box;
+    margin-top: 10px;
+}
+
+.formulario-login-itens {
+    padding: 10px;
+    vertical-align: middle;
+    width: fit-content;
+    margin: auto;
+    text-align: center;
+}
 
 /* #endregion */
 
 /* #region CONFIGURAÇÕES DO SITE ==================================================== */
 
 /* Corpo */
+.Shell {
+    margin: 0;
+    width: 100%;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+.App {
+    display: grid;
+    grid-template-columns: 15% 70% 15%;
+}
+
+.app-barralateral-esquerda {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+.app-barralateral-direita {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+.app-conteudo {
+    width: 100%;
+    height: 100%;
+    min-height: calc(100vh - 40px);
+    margin: 0;
+    border-inline: var(--pretoLeve) 1px solid;
+}
+
+.app-rodape {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr auto;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+    text-decoration-style: none;
+    vertical-align: middle;
+    border: 1px solid;
+    border-image: var(--gradiente45);
+    box-sizing: border-box;
+}
+
+.app-rodape a {
+    text-decoration: none;
+    display: inline-block;
+    color: var(--cinzaLeve);
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    box-sizing: border-box;
+}
+
+.app-rodape a:hover {
+    color: var(--AMARELO);
+}
+
 body {
     background-color: var(--pretoDark);
     color: var(--cinzaLeve);
     margin: 0;
     width: 100%;
     box-sizing: border-box;
-    margin: 0;
+    top: 0;
+    font-family: Baloo, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+h1,
+h2,
+h3 {
     font-family: Hubballi, Calibri, 'Trebuchet MS', sans-serif;
 }
 
@@ -94,3 +288,14 @@ body {
 }
 
 /* #endregion CONFIGURAÇÕES DO SITE ==================================*/
+
+
+
+/* #region DISPOSITIVOS MÓVEIS */
+@media (max-width: 800px) {
+    body {
+        background-color: blue !important;
+    }
+}
+
+/* #endregion */

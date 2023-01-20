@@ -1,23 +1,14 @@
 //#region IMPORTS
 const { join } = require("path");
+const express = require("express");
+const app = express();
+const { Router } = require("./app/router");
 //#endregion
 
 //#region CONFIGURAÇÕES INICIAIS DA APLICAÇÃO
-const express = require("express");
-const app = express();
 app.use(express.static("wwwroot"));
-const port = process.env.PORT || 4991;
-//#endregion
-
-//#region APIs
-//API da página inicial:
-app.get("/", (req, res) => {
-    require("fs").readFileSync(join("wwwroot", "index.html"));
-});
-//API da página de erros:
-app.all("*", (req, res) => {
-    res.status(404).send(require("fs").readFileSync(join("wwwroot", "error.html"), "utf-8"));
-});
+app.use("/", Router);
+const port = process.env.PORT || 3000;
 //#endregion
 
 //#region EXECUÇÃO
@@ -28,3 +19,4 @@ app.listen(port, () => {
 
 //#region MÉTODOS
 //#endregion
+
