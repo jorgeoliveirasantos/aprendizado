@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
@@ -13,27 +13,40 @@
 <body>
     <div class="Shell">
         <!-- Linha 1 MENU-->
-        <div class="menu">
-            <a href="./index.html" id="logo-btn" title="Início">
-                <img src="./files/logo.svg" style="height: 30px;">
-            </a>
-            <a>Item 1</a>
-            <a>Item 2</a>
-            <a>Item 3</a>
-            <a>Item 4</a>
-            <span></span>
-            <a id="login-btn" title="Usuário" href="./login.html">
-                <img src="./files/user-profile.svg" style="height: 30px;">
-            </a>
-        </div>
+        <div class="menu" id="menu"></div>
         <!-- Linha 2 APP -->
         <div class="App">
             <div class="app-barralateral-esquerda">
-                <p>Jorge Souza</p>
+                <a class="lnk">Jorge Souza oLIVEIRA DOS sANTOS</a>
+                <a class="lnk">Jorge Souza oLIVEIRA DOS sANTOS</a>
+                <a class="lnk">Jorge Souza oLIVEIRA DOS sANTOS</a>
+                <a class="lnk">Jorge Souza oLIVEIRA DOS sANTOS</a>
+                <a class="lnk">Jorge Souza oLIVEIRA DOS sANTOS</a>
+                <a class="lnk">Jorge Souza oLIVEIRA DOS sANTOS</a>
+                <a class="lnk">Jorge Souza oLIVEIRA DOS sANTOS</a>
+                <a class="lnk">Jorge Souza oLIVEIRA DOS sANTOS</a>
+                <a class="lnk">Jorge Souza oLIVEIRA DOS sANTOS</a>
+                <a class="lnk">Jorge Souza oLIVEIRA DOS sANTOS</a>
+                <a class="lnk">Jorge Souza oLIVEIRA DOS sANTOS</a>
+                <a class="lnk">Jorge Souza oLIVEIRA DOS sANTOS</a>
+                <a class="lnk">Jorge Souza oLIVEIRA DOS sANTOS</a>
+                <a class="lnk">Jorge Souza oLIVEIRA DOS sANTOS</a>
+                <a class="lnk">Jorge Souza oLIVEIRA DOS sANTOS</a>
+                <a class="lnk">Jorge Souza oLIVEIRA DOS sANTOS</a>
+                <a class="lnk">Jorge Souza oLIVEIRA DOS sANTOS</a>
+                <a class="lnk">Jorge Souza oLIVEIRA DOS sANTOS</a>
+                <a class="lnk">Jorge Souza oLIVEIRA DOS sANTOS</a>
+                <a class="lnk">Jorge Souza oLIVEIRA DOS sANTOS</a>
+                <a class="lnk">Jorge Souza oLIVEIRA DOS sANTOS</a>
+                <a class="lnk">Jorge Souza oLIVEIRA DOS sANTOS</a>
             </div>
             <div class="app-conteudo">
                 <h1>Aprendizado</h1>
                 <p>Jorge Souza</p>
+                <button class="js-button" onclick="Modal.Mensagem('Título da Janela', 'Mensagem da Janela', () => console.log('Uhuuuuu'))">Mensagem</button>
+                <button class="js-button" onclick="Modal.Erro('Mensagem da Janela', () => console.log('Uhuuuuu'))">Erro</button>
+                <button class="js-button" onclick="Modal.Aguarde('Mensagem da Janela')">Aguarde</button>
+                <button class="js-button" onclick="Modal.PopUp('Alerta!','Mensagem da Janela')">Popup</button>
             </div>
             <div class="app-barralateral-direita">
                 <script async
@@ -42,35 +55,14 @@
             </div>
         </div>
         <!-- Linha 2 APP -->
-        <div class="app-rodape">
-            <div style="padding: 15px;">
-                <div><a>Item 1</a></div>
-                <div><a>Item 2</a></div>
-                <div><a>Item 3</a></div>
-                <div><a>Item 4</a></div>
-                <div><a>Item 5</a></div>
-            </div>
-            <div style="padding: 15px;">
-                <div><a>Item 1</a></div>
-                <div><a>Item 2</a></div>
-                <div><a>Item 3</a></div>
-                <div><a>Item 4</a></div>
-                <div><a>Item 5</a></div>
-            </div>
-            <div style="padding: 15px;">
-                <div><a>Item 1</a></div>
-                <div><a>Item 2</a></div>
-                <div><a>Item 3</a></div>
-                <div><a>Item 4</a></div>
-                <div><a>Item 5</a></div>
-            </div>
-            <div style="grid-row: 2; grid-column-start: 1; grid-column-end: 4; padding: 15px;">
-                <hr style="border: none; border-top: var(--pretoLeve) 1px solid; margin: 0 10% 0 10%; padding: 15px;">
-                <img src="./files/logo.svg" style="height: 50px;">
-                <h3>Jorge Souza Oliveira dos Santos</h3>
-            </div>
-        </div>
+        <div class="app-rodape" id="app-rodape"></div>
     </div>
+    <modal></modal>
+    <div class="btn-up" id="btn-up"></div>
 </body>
-
+<script>
+    loadElements();
+</script>
 </html>
+<modal>
+</modal>

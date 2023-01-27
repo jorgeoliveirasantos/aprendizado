@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
@@ -13,7 +13,7 @@
 <body>
     <div class="Shell">
         <!-- Linha 1 MENU-->
-        <div class="menu">
+        <div class="menu" id="menu">
             <a href="./index.html" id="logo-btn" title="Início">
                 <img src="./files/logo.svg" style="height: 30px;">
             </a>
@@ -26,7 +26,6 @@
         <!-- Linha 2 APP -->
         <div class="App">
             <div class="app-barralateral-esquerda">
-                <p>Jorge Souza</p>
             </div>
             <div class="app-conteudo">
                 <div class="formulario-login">
@@ -97,7 +96,7 @@
             </div>
         </div>
         <!-- Linha 2 APP -->
-        <div class="app-rodape">
+        <div class="app-rodape" id="app-rodape">
             <div style="padding: 15px;">
                 <div><a>Item 1</a></div>
                 <div><a>Item 2</a></div>
@@ -127,5 +126,9 @@
         </div>
     </div>
     <modal></modal>
+    <div class="btn-up" id="btn-up"></div>
 </body>
+<script>
+    loadElements();
+</script>
 </html>

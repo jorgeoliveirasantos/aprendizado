@@ -1,0 +1,19 @@
+{
+    "gerais": {
+        "verificado": false,
+        "permissões": "usuario, professor, admin, mestre",
+        "ultimoLogin": 0
+    },
+    "cursos": {
+        "informatica": {
+            "concluido": false,
+            "progresso": 0,
+            "certificado": false
+        }
+    },
+    "conta": {
+        "status": "free",
+        "pagamentos": 0,
+        "estrelas": 0
+    }
+}

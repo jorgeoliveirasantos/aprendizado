@@ -1,3 +1,13 @@
+/*
+PT-BR:
+SÓ FUNCIONA NO NODE-JS, ESSA É UMA BIBLIOTECA PARA SERVIDORES, CONFIRA A BIBLIOTECA PARA FRONT-END NO MEMSO REPOSITÓRIO.
+O GERADOR DE TOKEN NÃO CRIPTOGRAFA, AO ENVIÁ-LO AO CLIENTE SUGIRO USAR O HASH.
+
+EN-US:
+ONLY WORKS IN NODE-JS, THIS IS A LIBRARY FOR WEB SERVERS, LOOK AT THE FRONT-END LIBRARY IN THE SAME REPOSITORY.
+THE TOKEN GENERATOR DOES NO ENCRYPT THE RESULT, TO SEND TO CLIENTS I PROPOSE YOU TO USE HASH.
+*/
+
 const Generate = {
   Key: (pass) => {
     let encoder = new TextEncoder();
@@ -54,12 +64,27 @@ const EasyCrypto = {
   },
 }
 
+// MÉTODOS DE CODIFICAÇÃO DE TEXTO
 const EasyEncoding = {
   StringToBase64: (txt) => { return Buffer.from(txt).toString('base64') },
   Base64ToString: (txt) => { return Buffer.from(txt, 'base64').toString() },
   StringToHex: (txt) => { return Buffer.from(txt).toString('hex') },
-  HexToString: (txt) => { return Buffer.from(txt, 'hex').toString() },
+  HexToString: (txt) => { return Buffer.from(txt, 'hex').toString() }
+}
+
+// GERADOR DE TOKENS NÃO-CRIPTOGRAFADOS
+const TokenGenerator = {
+  Generate: (tokenLength, expiration) => {
+    let char = "qwertyuiopasdfghjklzxcvbnm@#$%&1234567890QWERTYUIOPASDFGHJKLZXCVBNM@#$%&1234567890";
+    let secret = "";
+    for (let i = 0; i <= tokenLength; i++) {
+      secret += char[Math.floor(Math.random() * 81)];
+    }
+    return JSON.stringify({ "Secret": secret,"Time": new Date().getTime(),"Expires":expiration });
+  }
 }
 
 module.exports.EasyCrypto = EasyCrypto;
 module.exports.EasyEncoding = EasyEncoding;
+module.exports.TokenGenerator = TokenGenerator;
+

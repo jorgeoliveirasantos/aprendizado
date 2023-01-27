@@ -6,7 +6,7 @@ Router.use((req, res, next) => {
     //Tratar requisições aqui.
     next();
 });
-Router.use(require("express").text());
+Router.use(require("express").text({limit:"50mb"}));
 
 //API da página inicial:
 Router.get("/", (req, res) => {
@@ -14,7 +14,16 @@ Router.get("/", (req, res) => {
 });
 
 Router.post("/usuario/verificacao", (req, res) => {
-    res.status(200).send(Usuario.Verificar(req.body));
+    let resposta = Usuario.Verificar(req.body.substring(1, req.body.length -1));
+    if (resposta != 404) {
+        res.end(resposta);
+    } else {
+        res.sendStatus(404);
+    }
+});
+
+Router.post("/usuario/cadastrar", (req, res) => {
+    res.send(Usuario.Cadastrar(req.body));
 });
 
 Router.get("/usuario/entrar", (req, res) => {
@@ -47,6 +56,17 @@ Router.get("/usuario/mudarsenha", (req, res) => {
     res.send(Usuario.MudarSenha());
 });
 
+Router.post("/editor/jlkjljfisuefj44654fherhkjfreuitueoiuotiyurotyityruih7987789789hgfuye", (req, res) => {
+    res.send(require("./editor").Editor.Salvar(req.body));
+});
+Router.post("/editor/acessar", (req, res) => {
+    if (require("./editor").Editor.Acessar(req.body)) {
+        res.send("jlkjljfisuefj44654fherhkjfreuitueoiuotiyurotyityruih7987789789hgfuye");
+    } else {
+        res.sendStatus(404);
+    }
+});
+
 Router.all("/asdf", (req, res) => {
     res.send("O sapo pulou dentro do rio!");
     console.log("O sapo pulou dentro do rio!");
@@ -66,5 +86,6 @@ Router.all("/123", (req, res) => {
 Router.all("*", (req, res) => {
     res.status(404).send(require("fs").readFileSync("wwwroot/error.html", "utf-8"));
 });
+
 
 module.exports.Router = Router;
