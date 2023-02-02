@@ -56,12 +56,10 @@ Router.get("/usuario/mudarsenha", (req, res) => {
     res.send(Usuario.MudarSenha());
 });
 
-Router.post("/editor/jlkjljfisuefj44654fherhkjfreuitueoiuotiyurotyityruih7987789789hgfuye", (req, res) => {
-    res.send(require("./editor").Editor.Salvar(req.body));
-});
-Router.post("/editor/acessar", (req, res) => {
-    if (require("./editor").Editor.Acessar(req.body)) {
-        res.send("jlkjljfisuefj44654fherhkjfreuitueoiuotiyurotyityruih7987789789hgfuye");
+Router.post("/blog/carregarpostagens", (req, res) => {
+    let result = require("./data").Postagens.Carregar(req.body);
+    if (result != 404) {
+        res.send(result);
     } else {
         res.sendStatus(404);
     }

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <script src="./index.js"></script>
+    <link rel="shortcut icon" href="./files/logo.svg" type="image/x-icon">
+    <title>Aprendizado | Jorge Souza</title>
+</head>
+
+<body>
+    <div class="Shell">
+        <!-- Linha 1 MENU-->
+        <div class="menu" id="menu"></div>
+        <!-- Linha 2 APP -->
+        <div class="App" style="display: block; background-image: url('/files/back.jpg');
+        background-position-x: center; background-size: cover;">
+            <div class="menu-moderno-lkju" style="margin: auto; width: fit-content;">
+                <h1 style="width: fit-content; margin: auto; padding: 15px;">Cursos</h1>
+                <span><a href="/cursos/Informática/Informática.html">Curso de Informática Básica e Avançada</a></span>
+                <span><a href="/cursos/Design/Design Gráfico.html">Curso Completo de Design Gráfico</a></span>
+                <span><a href="/cursos/Web/Web Design.html">Curso de Web Design</a></span>
+                <span><a href="/cursos/Javascript/Javascript.html">Curso de Javascript</a></span>
+            </div>
+            <style>
+                .menu-moderno-lkju span {
+                    display: block;
+                    text-align: center;
+                    padding: 30px;
+                    font-size: 1.3rem;
+                    margin-bottom: 15px;
+                    background-color: #0005;
+                    border-radius: 50px;
+                    cursor: pointer;
+                    box-shadow: 0 0 10px var(--AMARELO);
+                    backdrop-filter: blur(10px);
+                    border: transparent 2px solid;
+                }
+                .menu-moderno-lkju span a {
+                    color: var(--AMARELO);
+                    text-decoration: none;
+                }
+                .menu-moderno-lkju span:hover {
+                    box-shadow: 0 0 30px var(--cinzaLeve);
+                    color: var(--cinzaLeve);
+                    border: var(--AMARELO) 2px solid;
+                    backdrop-filter: none;
+                }
+                .menu-moderno-lkju {
+                    margin: auto;
+                    width: fit-content;
+                    padding: 15px;
+                    font-family: Tech;
+                }
+            </style>
+        </div>
+        <!-- Linha 2 APP -->
+        <div class="app-rodape" id="app-rodape"></div>
+    </div>
+    <modal></modal>
+    <div class="btn-up" id="btn-up"></div>
+</body>
+<script>
+    loadElements();
+</script>
+</html>
+<modal>
+</modal>

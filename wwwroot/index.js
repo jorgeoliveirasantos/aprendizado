@@ -1,5 +1,5 @@
-//let _URL = "https://aprendizado-jorgesouza.azurewebsites.net";
-let _URL = "http://localhost:3000";
+let _URL = "https://aprendizado-jorgesouza.azurewebsites.net";
+//let _URL = "http://localhost:3000";
 
 const Login = {
     Usuario: {
@@ -127,22 +127,6 @@ const Login = {
     },
 };
 
-
-
-//#region API Lógica
-async function ChamadaAPI(_caminho, _data, _metodo) {
-    let res = await fetch(_caminho, {
-        method: _metodo,
-        headers: {
-            'Content-Type': 'text/plain'
-        },
-        mode: "no-cors",
-        body: JSON.stringify(_data)
-    });
-    return res.text();
-};
-//#endregion
-
 //#region UI Lógica
 let senha = false;
 function exibirSenha(el, txtsenha) {
@@ -242,15 +226,34 @@ const Modal = {
     },
 };
 
+function loadPosts() {
+    let intervalo = [0,2];
+    ChamadaAPI(`${_URL}/blog/carregarpostagens`, intervalo, "POST").then(data => {
+        let posts = JSON.parse(data);
+        document.getElementById("app-conteudo").innerHTML += `<div class="js-post">
+            <div class="nav-buttons">  
+                <a href="Restauração, Backup e Formatação.html" class="js-button">Anterior</a>
+                <div></div>
+                <a href="Log de Eventos.html" class="js-button">Próximo</a>
+            </div>
+        </div>`;
+        for (const i of posts) {
+            document.getElementById("app-conteudo").innerHTML += `<div class="js-post">${i}</div>`;
+        }
+        intervalo = [intervalo[0] + 3, intervalo[1] + 3];
+    }).catch(data => {
+        console.log(data);
+    });
+}
+
 function loadElements() {
     document.getElementById("menu").innerHTML = `
         <a href="/index.html" id="logo-btn" title="Início">
             <img src="/files/logo.svg" style="height: 30px;">
         </a>
-        <a>Informática</a>
-        <a>Design Gráfico</a>
-        <a>Javascript</a>
-        <a>Web Apps</a>
+        <a href="/index.html">Blog</a>
+        <a href="/cursos.html">Cursos</a>
+        <a href="/downloads.html">Downloads</a>
         <span></span>
         <a id="login-btn" title="Usuário não logado" href="/login.html">
             <img src="/files/user-profile.svg" style="height: 30px;">
@@ -259,48 +262,58 @@ function loadElements() {
 
     document.getElementById("app-rodape").innerHTML = `
         <div style="padding: 15px;">
-            <div>Cursos:</div>
-            <div><a>Informática</a></div>
-            <div><a>Design Gráfico</a></div>
-            <div><a>Javascript</a></div>
-            <div><a>Web Apps</a></div>
+            <h3 style="color: var(--cinzaMedio)">Cursos:</h3>
+            <a href="/cursos/Informática/Informática.html">Informática</a>
+            <a href="/cursos/Design/Design Gráfico.html">Design Gráfico</a>
+            <a href="/cursos/Web/Web Design.html">Web Design</a>
+            <a href="/cursos/Javascript/Javascript.html">Javascript</a>
+            <span></span>
         </div>
         <div style="padding: 15px;">
-        <div>Apostilas:</div>
-        <div><a>Informática</a></div>
-        <div><a>Design Gráfico</a></div>
-        <div><a>Javascript</a></div>
-        <div><a>Web Apps</a></div>
+            <h3 style="color: var(--cinzaMedio)">Apostilas:</h3>
+            <a href="https://clubedeautores.com.br/livro/curso-de-informatica-basica-e-avancada" target="_blank">Informática</a>
+            <a href="https://clubedeautores.com.br/livro/curso-completo-de-design-grafico" target="_blank">Design Gráfico</a>
+            <a href="https://clubedeautores.com.br/livro/curso-de-web-design-2" target="_blank">Web Design</a>
+            <a href="https://clubedeautores.com.br/livro/curso-de-javascript" target="_blank">Javascript</a>
+            <span></span>
         </div>
         <div style="padding: 15px;">
-            <div>Contato:</div>
-            <div><a>Whatsapp</a></div>
-            <div><a>Instagram</a></div>
-            <div><a>Facebook</a></div>
-            <div><a></a></div>
-            <div><a></a></div>
+            <h3 style="color: var(--cinzaMedio)">Contato:</h3>
+            <a href="mailto:jorge.sos777@outlook.com" target="_blank">Gmail</a>
+            <a href="https://wa.me/5577991161892" target="_blank">Whatsapp</a>
+            <a href="https://www.instagram.com/jorgeoliveiraonline/" target="_blank">Instagram</a>
+            <a href="https://www.workana.com/freelancer/175498bc00eeda4731ad4044f609f5a5" target="_blank">Workana</a>
+            <a href="https://clubedeautores.com.br/livros/autores/jorge-souza-oliveira-dos-santos" target="_blank">Clube de Autores</a>
         </div>
-        <div style="grid-row: 2; grid-column-start: 1; grid-column-end: 4; padding: 15px;">
+        <div style="grid-row: 2; grid-column-start: 1; grid-column-end: 4; padding: 15px; text-align: center;">
             <hr style="border: none; border-top: var(--pretoLeve) 1px solid; margin: 0 10% 0 10%; padding: 15px;">
             <img src="/files/logo.svg" style="height: 50px;">
             <h3>Copyright ⓒ ${new Date().getFullYear()} | Jorge Souza Oliveira dos Santos</h3>
         </div>
     `;
-    
+
     let btnUp = document.getElementById("btn-up");
     btnUp.innerHTML = `
         <img src="/files/btn-up.svg" style="width: 30px;">
     `;
     btnUp.onclick = () => {
-        window.scrollTo( { top: 0, left: 0, behavior: 'smooth' } );
+        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
     }
 }
 
 //#endregion
-/*
-1
-13
-14
-18
-22
-*/
+
+
+//#region API Lógica
+async function ChamadaAPI(_caminho, _data, _metodo) {
+    let res = await fetch(_caminho, {
+        method: _metodo,
+        headers: {
+            'Content-Type': 'text/plain'
+        },
+        mode: "no-cors",
+        body: JSON.stringify(_data)
+    });
+    return res.text();
+};
+//#endregion

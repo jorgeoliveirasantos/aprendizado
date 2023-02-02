@@ -17,37 +17,27 @@
         <!-- Linha 2 APP -->
         <div class="App">
             <div class="app-barralateral-esquerda">
-                <a class="lnk">Jorge Souza oLIVEIRA DOS sANTOS</a>
-                <a class="lnk">Jorge Souza oLIVEIRA DOS sANTOS</a>
-                <a class="lnk">Jorge Souza oLIVEIRA DOS sANTOS</a>
-                <a class="lnk">Jorge Souza oLIVEIRA DOS sANTOS</a>
-                <a class="lnk">Jorge Souza oLIVEIRA DOS sANTOS</a>
-                <a class="lnk">Jorge Souza oLIVEIRA DOS sANTOS</a>
-                <a class="lnk">Jorge Souza oLIVEIRA DOS sANTOS</a>
-                <a class="lnk">Jorge Souza oLIVEIRA DOS sANTOS</a>
-                <a class="lnk">Jorge Souza oLIVEIRA DOS sANTOS</a>
-                <a class="lnk">Jorge Souza oLIVEIRA DOS sANTOS</a>
-                <a class="lnk">Jorge Souza oLIVEIRA DOS sANTOS</a>
-                <a class="lnk">Jorge Souza oLIVEIRA DOS sANTOS</a>
-                <a class="lnk">Jorge Souza oLIVEIRA DOS sANTOS</a>
-                <a class="lnk">Jorge Souza oLIVEIRA DOS sANTOS</a>
-                <a class="lnk">Jorge Souza oLIVEIRA DOS sANTOS</a>
-                <a class="lnk">Jorge Souza oLIVEIRA DOS sANTOS</a>
-                <a class="lnk">Jorge Souza oLIVEIRA DOS sANTOS</a>
-                <a class="lnk">Jorge Souza oLIVEIRA DOS sANTOS</a>
-                <a class="lnk">Jorge Souza oLIVEIRA DOS sANTOS</a>
-                <a class="lnk">Jorge Souza oLIVEIRA DOS sANTOS</a>
-                <a class="lnk">Jorge Souza oLIVEIRA DOS sANTOS</a>
-                <a class="lnk">Jorge Souza oLIVEIRA DOS sANTOS</a>
+                <div style="background-color: var(--pretoMedio); width: 100%; overflow: hidden;">
+                    <a href="https://clubedeautores.com.br/livro/curso-de-informatica-basica-e-avancada" target="_blank"><img src="./files/info.png"></a>
+                    <a href="https://clubedeautores.com.br/livro/curso-completo-de-design-grafico" target="_blank"><img src="./files/design.png"></a>
+                    <a href="https://clubedeautores.com.br/livro/curso-de-web-design-2" target="_blank"><img src="./files/webdesign.png"></a>
+                    <a href="https://clubedeautores.com.br/livro/curso-de-javascript" target="_blank"><img src="./files/javascript.png"></a>
+                </div>
+                <style>
+                    .app-barralateral-esquerda img {
+                        width: 100%;
+                        box-sizing: border-box;
+                        user-select: none;
+                        cursor: pointer;
+                        transition: all 300ms;
+                    }
+                    .app-barralateral-esquerda img:hover {
+                        padding: 0;
+                        transform: translateX(20px);
+                    }
+                </style>
             </div>
-            <div class="app-conteudo">
-                <h1>Aprendizado</h1>
-                <p>Jorge Souza</p>
-                <button class="js-button" onclick="Modal.Mensagem('Título da Janela', 'Mensagem da Janela', () => console.log('Uhuuuuu'))">Mensagem</button>
-                <button class="js-button" onclick="Modal.Erro('Mensagem da Janela', () => console.log('Uhuuuuu'))">Erro</button>
-                <button class="js-button" onclick="Modal.Aguarde('Mensagem da Janela')">Aguarde</button>
-                <button class="js-button" onclick="Modal.PopUp('Alerta!','Mensagem da Janela')">Popup</button>
-            </div>
+            <div class="app-conteudo" id="app-conteudo"></div>
             <div class="app-barralateral-direita">
                 <script async
                     src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7018638705666056"
@@ -62,6 +52,7 @@
 </body>
 <script>
     loadElements();
+    loadPosts();
 </script>
 </html>
 <modal>
