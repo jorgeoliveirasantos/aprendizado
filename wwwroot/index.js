@@ -1,6 +1,6 @@
-let _URL = "https://aprendizado-jorgesouza.azurewebsites.net";
-//let _URL = "http://localhost:3000";
-
+//let _URL = "https://aprendizado-jorgesouza.azurewebsites.net";
+let _URL = "http://localhost:3000";
+//#region Login
 const Login = {
     Usuario: {
         "ID": 0,
@@ -126,6 +126,38 @@ const Login = {
         //
     },
 };
+//#endregion
+
+//#region  Blog
+
+let intervalo = [0, 4];
+function loadPosts() {
+    ChamadaAPI(`${_URL}/blog/carregarpostagens`, intervalo, "POST").then(data => {
+        let posts = JSON.parse(data);
+        document.getElementById("app-conteudo").innerHTML = `<div class="js-post">
+            <div class="nav-buttons">  
+                <a class="js-button" style="opacity: 0.5;">Anterior</a>
+                <span id="numero-pagina" style="display: inline-block; text-align:center; height:fit-content; margin:auto;">Página 1</span>
+                <a class="js-button" onclick="proximaPagina()">Próximo</a>
+            </div>
+        </div>`;
+        for (const i of posts) {
+            document.getElementById("app-conteudo").innerHTML += `<div class="js-post">${i}</div>`;
+        }
+        document.getElementById("app-conteudo").innerHTML += `<div class="js-post">ADS<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7018638705666056" crossorigin="anonymous"></script></div>`;
+        document.getElementById("app-conteudo").innerHTML += `<div class="js-post"><h3>O que é nascido de Deus vence o mundo, e esta é a vitória que vence o mundo: a nossa fé.</h3><p>(1 João 5:4)</p></div>`;
+        intervalo = [intervalo[0] + 3, intervalo[1] + 3];
+    }).catch(data => {
+        console.log(data);
+    });
+}
+function proximaPagina() {
+    intervalo = [ intervalo[0]+3, intervalo[1]+3 ];
+}
+function paginaAnterior() {
+    intervalo = [ intervalo[0]-3, intervalo[1]-3 ];
+}
+//#endregion
 
 //#region UI Lógica
 let senha = false;
@@ -226,26 +258,6 @@ const Modal = {
     },
 };
 
-function loadPosts() {
-    let intervalo = [0,2];
-    ChamadaAPI(`${_URL}/blog/carregarpostagens`, intervalo, "POST").then(data => {
-        let posts = JSON.parse(data);
-        document.getElementById("app-conteudo").innerHTML += `<div class="js-post">
-            <div class="nav-buttons">  
-                <a href="Restauração, Backup e Formatação.html" class="js-button">Anterior</a>
-                <div></div>
-                <a href="Log de Eventos.html" class="js-button">Próximo</a>
-            </div>
-        </div>`;
-        for (const i of posts) {
-            document.getElementById("app-conteudo").innerHTML += `<div class="js-post">${i}</div>`;
-        }
-        intervalo = [intervalo[0] + 3, intervalo[1] + 3];
-    }).catch(data => {
-        console.log(data);
-    });
-}
-
 function loadElements() {
     document.getElementById("menu").innerHTML = `
         <a href="/index.html" id="logo-btn" title="Início">
@@ -302,7 +314,6 @@ function loadElements() {
 }
 
 //#endregion
-
 
 //#region API Lógica
 async function ChamadaAPI(_caminho, _data, _metodo) {

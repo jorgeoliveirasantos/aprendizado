@@ -12,7 +12,7 @@
         }
     },
     "conta": {
-        "status": "free",
+        "status": "pago",
         "pagamentos": 0,
         "estrelas": 0
     }
