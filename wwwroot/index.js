@@ -1,5 +1,5 @@
-//let _URL = "https://aprendizado-jorgesouza.azurewebsites.net";
-let _URL = "http://localhost:3000";
+let _URL = "https://aprendizado-jorgesouza.azurewebsites.net";
+//let _URL = "http://localhost:3000";
 //#region Login
 const Login = {
     Usuario: {
@@ -277,7 +277,7 @@ function loadElements() {
             <h3 style="color: var(--cinzaMedio)">Cursos:</h3>
             <a href="/cursos/Informática/Informática.html">Informática</a>
             <a href="/cursos/Design/Design Gráfico.html">Design Gráfico</a>
-            <a href="/cursos/Web/Web Design.html">Web Design</a>
+            <a href=" /cursos/Web Design/Web Design.html">Web Design</a>
             <a href="/cursos/Javascript/Javascript.html">Javascript</a>
             <span></span>
         </div>
